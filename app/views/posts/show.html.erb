@@ -10,7 +10,10 @@
 
 	<h3>
 	  
-	  Written By: <%= @post.author %>
+	  <p>Written By: <%= @post.user.username%></p>
+	  <% if @post.user.avatar.url != nil %>
+	  	<p><%= image_tag @post.user.avatar.url %></p>
+	  <% end %>
 	</h3>
 		<p>Created on <%= @post.created_at.strftime("%B %e, %Y at %l:%M %p") %></p>
 	</div>
@@ -28,9 +31,12 @@
 
 		<% @post.comments.each do |comment|  %>
 		<div class="well">
-			<h3><%= comment.author %> said ...</h3>
+			<h3><%= comment.user.username %> said...</h3>
+			<% if comment.user.avatar.url != nil %>
+				<p><%= image_tag comment.user.avatar.url %></p>
+			<% end %>	
 			<p><%= comment.comment_entry %></p>
-			<p><%= link_to "Edit Comment", edit_comment_path(id: comment.id, post_id:  @post.id), class: "btn btn-primary" %> | 
+			<p><%= link_to "Edit Comment", edit_comment_path(id: comment.id), class: "btn btn-primary" %> | 
 			<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
 			<p>Created on <%= comment.created_at.strftime("%B %e, %Y at %l:%M %p") %></p>
 

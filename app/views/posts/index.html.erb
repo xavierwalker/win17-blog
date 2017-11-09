@@ -9,9 +9,13 @@
       
           <div class="panel panel-heading">
           <h2><%= post.title %></h2>
+          <% if post.user.avatar.url != nil %>
+            <p><%= image_tag post.user.avatar.url %></p>
+          <% end %>  
+          <p>Written by: <%= post.user.username %></p> 
 
-          <p>Written by: <%= post.author %></p> 
-          <p>Created on <%= post.created_at.strftime("%B %e, %Y at %l:%M %p") %></p> 
+          <p>Created on <%= post.created_at.strftime("%B %e, %Y at %l:%M %p")%></p> 
+
         </div>
         <div class="panel panel-body">
           <p><%= post.blog_entry %></p>
@@ -24,5 +28,5 @@
       <% end %>
   <br>
 
-  <%= link_to 'New Post', new_post_path %>
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
 </div>
