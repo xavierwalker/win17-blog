@@ -16,3 +16,46 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+body {
+		background: url(flower.jpg) no-repeat center fixed;
+ 		background-size: cover;
+
+ }
+
+ .container .post{
+ 	background-color: rgba(247, 245, 220, 0.6);
+ }
+
+ .panel-default > .panel-heading{
+ 	text-align: center;
+ 	background-color: #a97eba;
+ }
+
+ .btn-primary, .btn-primary:hover{
+ 	border-color: #a97eba;
+ 	background-color: #a97eba;
+ }
+
+ .btn-warning, .btn-warning:hover{
+	border-color: rgb(247, 245, 220);
+	background-color: rgb(247, 245, 220)
+ }
+
+
+ .btn-danger, .btn-danger:hover{
+ 	border-color: #87aac6;
+ 	background-color: #87aac6;
+ }
+
+
+.btn-primary, .btn-danger, .btn-warning{
+ 	color: #433b47;
+ }
+ a:visited .btn-primary, a:visited .btn-danger,  a:visited .btn-warning{
+ 	color: #433b47;
+ }
+
+ .well{
+ 	background-color: #c3bcc6;
+ }

@@ -1,37 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+	<div class="container post" >
+	<div class="panel panel-default">
+	<div class="panel panel-heading">
+	<h1>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
+	  <%= @post.title %>
+	</h1>
 
-<p>
-  <strong>Blog entry:</strong>
-  <%= @post.blog_entry %>
-</p>
+	<h3>
+	  
+	  Written By: <%= @post.author %>
+	</h3>
+		<p>Created on <%= @post.created_at.strftime("%B %e, %Y at %l:%M %p") %></p>
+	</div>
+	<div class="panel panel-body" >
+	<p>
+	 
+	  <%= @post.blog_entry %>
+	</p>
 
-<p><%= link_to 'Edit', edit_post_path(@post) %></p>
+	<p><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %></p>
+	</div>
+	<div class="panel panel-footer">
+	<div id="comments">
+		<%= render 'comments/form', comment: @comment %>
 
-<div id="comments">
-	<%= render 'comments/form', comment: @comment %>
+		<% @post.comments.each do |comment|  %>
+		<div class="well">
+			<h3><%= comment.author %> said ...</h3>
+			<p><%= comment.comment_entry %></p>
+			<p><%= link_to "Edit Comment", edit_comment_path(id: comment.id, post_id:  @post.id), class: "btn btn-primary" %> | 
+			<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+			<p>Created on <%= comment.created_at.strftime("%B %e, %Y at %l:%M %p") %></p>
 
-	<% @post.comments.each do |comment|  %>
-		<h3><%= comment.author %> said ...</h3>
-		<p><%= comment.comment_entry %></p>
-		<p><%= link_to "Edit Comment", edit_comment_path(id: comment.id, post_id:  @post.id), class: "btn btn-info" %> | 
-		<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
-	<% end %>	
+		</div>
+		<% end %>	
 
+	</div>
 </div>
-
-
-<p><%= link_to 'Back', posts_path %></p>
-
+	</div>
+	<p><%= link_to 'Back', posts_path, class: "btn btn-warning" %></p>
+	</div>
 
 
 

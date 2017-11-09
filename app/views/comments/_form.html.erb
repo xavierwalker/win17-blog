@@ -11,20 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author, id: :comment_author %>
+ <div class="well"> 
+
+  <div class="form-group">
+   
+    <%= form.text_field :author, id: :comment_author, placeholder: "What's your name?", class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :comment_entry %>
-    <%= form.text_area :comment_entry, id: :comment_comment_entry %>
+  <div class="form-group">
+
+    <%= form.text_area :comment_entry, id: :comment_comment_entry, placeholder: "What are your thoughts on the post?", class: 'form-control' %>
   </div>
 
   
 
 
   <div class="field">
+    <!-- We want to be able to edit and delete comments from the Post show page -->
     <% if @post != nil  %>
 
       <%= form.hidden_field :post_id, value: @post.id %>
@@ -34,6 +37,7 @@
    </div> 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Post Comment', class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>

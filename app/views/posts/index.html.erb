@@ -1,33 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class="container post">
+  <center><h1>My Thoughts Out Loud</h1></center>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Blog entry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
+      <% @posts.each do |post| %>
+     
+        <div class="panel panel-default">
       
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.author %></td>
-        <td><%= post.blog_entry %></td>
-        <td><%= link_to 'Show', post, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>  
+          <div class="panel panel-heading">
+          <h2><%= post.title %></h2>
 
-    <% end %>
-  </tbody>
-</table>
+          <p>Written by: <%= post.author %></p> 
+          <p>Created on <%= post.created_at.strftime("%B %e, %Y at %l:%M %p") %></p> 
+        </div>
+        <div class="panel panel-body">
+          <p><%= post.blog_entry %></p>
+          <p><%= link_to 'Show', post, class: "btn btn-primary" %> |
+           <%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %> |
+           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+        </div>
+      </div>
 
-<br>
+      <% end %>
+  <br>
 
-<%= link_to 'New Post', new_post_path %>
+  <%= link_to 'New Post', new_post_path %>
+</div>
