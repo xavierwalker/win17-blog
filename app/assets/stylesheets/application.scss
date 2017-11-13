@@ -60,20 +60,23 @@ body {
  }
 
  .well{
- 	background-color: #7c838e;
-  background: url(landscape.jpg) center;
+ 	/*background-color: #7c838e;*/
+  background-color-color: rgba(0,0,0,0);
+ }
+
+ .welcome{
+  text-align: center;
  }
 
  .navbar-default{
-    border-color: #a3abb7;
+    border-color: rgba(0,0,0,0);
     text-align: center;
- /*	background-color: #a3abb7;*/
-  background: url(landscape.jpg) center;
+    background-color: rgba(0,0,0,0);
+  /*background: url(landscape.jpg) center;*/
   }
 
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #433b47;
-    background: url(landscape.jpg);
 }
 
 .navbar-default .navbar-nav > li > a {
