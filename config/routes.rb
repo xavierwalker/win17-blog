@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
 
   root 'posts#index'
+
+  get '/:name' => 'posts#user_posts', as: :user_posts
+
   get 'index' =>'practice#index'
   post 'index' => 'practice#index'
   get 'about' => 'practice#about'
